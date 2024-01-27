@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+
+{% block body %}
+    {% for semester in semesters.all %}
+        
+        <article>
+            <header><a href="{% url "semester" semester.slug %}">{{ semester }}</a></header>
+            <main>
+                {% for course in semester.course.all %}
+                    {{ course.code }} - {{ course }} <br>
+                {% endfor %}
+            </main>
+          </article>
+    {% endfor %}
+{% endblock body %}

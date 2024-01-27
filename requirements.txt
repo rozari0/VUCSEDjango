@@ -1,0 +1,9 @@
+django 
+gunicorn
+django-autoslug
+djangorestframework
+dj-database-url
+python-slugify[unidecode]
+whitenoise
+django-jazzmin
+psycopg2-binary

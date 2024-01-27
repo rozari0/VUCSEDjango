@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+
+{% block body %}
+<h1>{{ courses }}</h1>
+    {% for resource in courses.resource.all %}
+        
+        <article>
+            {% if resource.link %}
+            <header><a href="{{ resource.link }}">{{ resource }}</a></header>
+            {% else %}
+            <header><a>{{ resource }}</a></header>
+            {% endif %}
+            
+            <main>
+                {{ resource.description | safe }}
+                   
+            </main>
+          </article>
+    {% endfor %}
+{% endblock body %}

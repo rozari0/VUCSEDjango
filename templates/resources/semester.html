@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+
+{% block body %}
+<h1>{{ semesters }}</h1>
+    {% for course in semesters.course.all %}
+        
+        <article>
+            <header><a href="{% url "course" course.slug %}">{{ course }}</a></header>
+            <main>
+                <ol>
+                    {% for resource in course.resource.all %}
+                        <li>
+                            {{ resource }} 
+                        </li>
+                    {% endfor %}
+                </ol>
+            </main>
+          </article>
+    {% endfor %}
+{% endblock body %}
