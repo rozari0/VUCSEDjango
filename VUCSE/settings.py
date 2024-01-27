@@ -82,7 +82,7 @@ WSGI_APPLICATION = "VUCSE.wsgi.app"
 
 DATABASES = {
     "default": dj_database_url.config(
-        default="postgres://postgres:example@192.168.1.36:5432/postgres",
+        default="postgres://default:CGuDFl5qN0MJ@ep-yellow-star-a45jli7h.us-east-1.postgres.vercel-storage.com:5432/verceldb",
         conn_max_age=600,
         conn_health_checks=True,
     )
