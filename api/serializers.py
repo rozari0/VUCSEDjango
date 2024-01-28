@@ -1,6 +1,6 @@
 from rest_framework import serializers
 
-from .models import Course, Resource, Semester
+from resources.models import Course, Resource, Semester
 
 
 class SemesterSerializer(serializers.ModelSerializer):

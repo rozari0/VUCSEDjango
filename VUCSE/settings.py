@@ -11,22 +11,30 @@ https://docs.djangoproject.com/en/5.0/ref/settings/
 """
 
 from pathlib import Path
+
 import dj_database_url
+import environ
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
+
+environ.Env.read_env(env_file=BASE_DIR / ".env")
+
+env = environ.Env(
+    DEBUG=(bool, False),
+)
 
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/5.0/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = "django-insecure-t)z0@416x!%5@vh*c@+0!a_8e+tj^qxeq1kns$9asilbd#d*l4"
+SECRET_KEY = env("SECRET_KEY")
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = env("DEBUG")
 
-ALLOWED_HOSTS = ["*", ".ngrok-free.app "]
+ALLOWED_HOSTS = [".pythonanywhere.com", "127.0.0.1"]
 
 STATIC_ROOT = BASE_DIR / "staticfiles"
 # Application definition
@@ -43,11 +51,12 @@ INSTALLED_APPS = [
 INSTALLED_APPS += [
     "rest_framework",
     "resources",
+    "api",
 ]
 
 MIDDLEWARE = [
     "django.middleware.security.SecurityMiddleware",
-    "whitenoise.middleware.WhiteNoiseMiddleware",
+    # "whitenoise.middleware.WhiteNoiseMiddleware",
     "django.contrib.sessions.middleware.SessionMiddleware",
     "django.middleware.common.CommonMiddleware",
     "django.middleware.csrf.CsrfViewMiddleware",
@@ -82,7 +91,7 @@ WSGI_APPLICATION = "VUCSE.wsgi.app"
 
 DATABASES = {
     "default": dj_database_url.config(
-        default="postgres://default:CGuDFl5qN0MJ@ep-yellow-star-a45jli7h.us-east-1.postgres.vercel-storage.com:5432/verceldb",
+        default=env("DATABASE_URL"),
         conn_max_age=600,
         conn_health_checks=True,
     )

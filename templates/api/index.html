@@ -1,0 +1,46 @@
+{% extends 'base.html' %}
+
+{% block body %}
+  <table>
+    <tr>
+      <td>
+        <a href="semesters/">Semesters</a>
+      </td>
+      <td>
+        <code>api/semesters/</code>Get all semesters.
+      </td>
+    </tr>
+    <tr>
+        <td>
+          <a href="semester/1">Semester</a>
+        </td>
+        <td><p>
+            <code>api/semester/&lt;semester id&gt;</code> Get Data about any single Semester.
+        </p>
+           
+        </td>
+      </tr>
+
+      <tr>
+        <td>
+          <a href="course/1">Course</a>
+        </td>
+        <td><p>
+            <code>api/course/&lt;course id&gt;</code> Get Data about any single course.
+        </p>
+           
+        </td>
+      </tr>
+
+      <tr>
+        <td>
+          <a href="course/1">Resource</a>
+        </td>
+        <td><p>
+            <code>api/resource/&lt;resource id&gt;</code> Get Data about any single resource.
+        </p>
+           
+        </td>
+      </tr>
+  </table>
+{% endblock %}
