@@ -7,3 +7,4 @@ python-slugify[unidecode]
 whitenoise
 django-jazzmin
 psycopg2-binary
+django-environ
